@@ -1,434 +1,776 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayadevan P - Professional Portfolio</title>
-    <style>
-        :root {
-            --primary-color: #0f172a;
-            --secondary-color: #2563eb;
-            --background-light: #f8fafc;
-            --background-card: #ffffff;
-            --text-main: #334155;
-            --text-muted: #64748b;
-        }
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            background-color: #f1f5f9;
-            line-height: 1.6;
-        }
-        header {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            /* Adjusted object-position so the head is fully visible */
-            object-position: center top;
-            border: 4px solid #ffffff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            margin: 0 auto 20px auto;
-            display: block;
-            background-color: #fff;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.8em;
-            letter-spacing: -0.5px;
-        }
-        header h2 {
-            margin: 10px 0 25px;
-            font-size: 1.3em;
-            font-weight: 400;
-            color: #94a3b8;
-        }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 0.95em;
-        }
-        .contact-info a, .contact-info span {
-            color: #cbd5e1;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .contact-info a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 1000px;
-            margin: -30px auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-        .card {
-            background-color: var(--background-card);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        }
-        h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 1.4em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Certifications Grid - Highlighted Section */
-        #certifications.card {
-            border-top: 4px solid var(--secondary-color);
-        }
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .cert-item {
-            background: var(--background-light);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 3px solid var(--secondary-color);
-            transition: transform 0.2s;
-        }
-        .cert-item:hover {
-            transform: translateY(-2px);
-        }
-        .cert-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-        .cert-icon {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
-        }
-        .cert-item h4 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 1.1em;
-            line-height: 1.3;
-        }
-        .cert-meta {
-            font-size: 0.85em;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        .cert-focus {
-            font-size: 0.9em;
-            color: var(--text-main);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayadevan P — IT Support Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --bg:#F5F7FA;
+    --surface:#FFFFFF;
+    --ink:#0F1826;
+    --ink-soft:#4B5768;
+    --ink-faint:#8493A6;
+    --line:#E1E6ED;
+    --navy:#123C5E;
+    --navy-deep:#0B283F;
+    --green:#2FAE66;
+    --green-bg:#E7F6ED;
+    --amber:#DB9A1D;
+    --amber-bg:#FBF1DD;
+    --radius:10px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --maxw:920px;
+  }
 
-        /* Experience */
-        .job {
-            margin-bottom: 35px;
-        }
-        .job:last-child {
-            margin-bottom: 0;
-        }
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 5px;
-        }
-        .job-title {
-            margin: 0;
-            font-size: 1.25em;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-        .job-company {
-            font-weight: 500;
-            color: var(--secondary-color);
-            margin-top: 5px;
-            margin-bottom: 15px;
-        }
-        .job-date {
-            font-size: 0.9em;
-            color: var(--text-muted);
-            background: var(--background-light);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        .job ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-        .job li {
-            margin-bottom: 10px;
-        }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
 
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .skill-box {
-            padding: 20px;
-            background: var(--background-light);
-            border-radius: 8px;
-        }
-        .skill-box h4 {
-            margin: 0 0 10px 0;
-            color: var(--secondary-color);
-        }
-        .skill-box p {
-            margin: 0;
-            font-size: 0.95em;
-        }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
 
-        /* Education & Languages */
-        .edu-lang-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        @media (max-width: 600px) {
-            .edu-lang-wrap {
-                grid-template-columns: 1fr;
-            }
-        }
-        .edu-item {
-            margin-bottom: 15px;
-        }
-        .edu-item h4 {
-            margin: 0 0 5px 0;
-            color: var(--primary-color);
-        }
+  /* ---------- Top status strip ---------- */
+  .statusbar{
+    background:var(--navy-deep);
+    color:#CFE0EC;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:.02em;
+  }
+  .statusbar .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:9px 28px;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .statusbar .dot-line{ display:flex; align-items:center; gap:8px; }
+  .pulse-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 0 rgba(47,174,102,.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(47,174,102,.55); }
+    70%{ box-shadow:0 0 0 7px rgba(47,174,102,0); }
+    100%{ box-shadow:0 0 0 0 rgba(47,174,102,0); }
+  }
+  .statusbar .location{ color:#7E96A9; }
 
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--text-muted);
-            font-size: 0.9em;
-        }
-    </style>
+  /* ---------- Hero ---------- */
+  header.hero{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color:#fff;
+    padding:46px 0 34px;
+  }
+  .hero .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#8FC1D6;
+    margin:0 0 10px;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(34px, 6vw, 50px);
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .hero .role{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:16px;
+    color:#B9D3E1;
+    margin:0 0 22px;
+    max-width:640px;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 18px;
+    font-size:13.5px;
+    font-family:var(--font-mono);
+    color:#DCEAF2;
+  }
+  .contact-row a{ text-decoration:none; }
+  .contact-row span{ display:inline-flex; align-items:center; gap:7px; }
+  .contact-row i{ color:var(--green); width:14px; text-align:center; }
+
+  /* Stat tiles */
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:var(--radius);
+    overflow:hidden;
+    margin-top:30px;
+  }
+  .stat-tile{
+    background:rgba(11,40,63,.55);
+    padding:16px 14px;
+  }
+  .stat-tile .num{
+    font-family:var(--font-mono);
+    font-weight:600;
+    font-size:22px;
+    color:#fff;
+  }
+  .stat-tile .lbl{
+    font-size:11.5px;
+    color:#9FC0D2;
+    margin-top:3px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+
+  /* ---------- Sections ---------- */
+  main{ padding:0 0 10px; }
+  section{ padding:40px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:22px;
+  }
+  .section-head .idx{
+    font-family:var(--font-mono);
+    color:var(--ink-faint);
+    font-size:13px;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:21px;
+    font-weight:700;
+    margin:0;
+    color:var(--navy-deep);
+  }
+  .section-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .summary p{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:760px;
+    margin:0;
+  }
+  .summary strong{ color:var(--ink); }
+
+  /* ---------- Experience: ticket cards ---------- */
+  .ticket{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    margin-bottom:16px;
+    transition:box-shadow .18s ease, transform .18s ease;
+  }
+  .ticket:hover{
+    box-shadow:0 6px 20px rgba(15,24,38,.06);
+    transform:translateY(-1px);
+  }
+  .ticket-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:8px 16px;
+    margin-bottom:4px;
+  }
+  .ticket-id{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-faint);
+    letter-spacing:.03em;
+  }
+  .ticket-title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:17.5px;
+    color:var(--ink);
+    margin:2px 0 2px;
+  }
+  .ticket-company{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .ticket-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .badge{
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.04em;
+    padding:3px 9px;
+    border-radius:100px;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .badge.active{ background:var(--green-bg); color:#1D8A50; }
+  .badge.resolved{ background:#EEF1F5; color:var(--ink-soft); }
+  .ticket-dates{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  .ticket ul{
+    margin:12px 0 0;
+    padding-left:0;
+    list-style:none;
+  }
+  .ticket li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:8px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .ticket li:last-child{ margin-bottom:0; }
+  .ticket li::before{
+    content:"›";
+    position:absolute;
+    left:0;
+    color:var(--amber);
+    font-weight:700;
+  }
+
+  /* ---------- Competencies ---------- */
+  .comp-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+  }
+  .comp-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    display:flex;
+    gap:14px;
+  }
+  .comp-icon{
+    flex-shrink:0;
+    width:38px; height:38px;
+    border-radius:9px;
+    background:var(--navy);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+  }
+  .comp-body h3{
+    font-family:var(--font-display);
+    font-size:14.5px;
+    margin:2px 0 6px;
+    color:var(--ink);
+  }
+  .comp-body p{
+    margin:0;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  /* ---------- Certifications ---------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+  }
+  .cert-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .cert-card:hover{
+    border-color:#C9D6E2;
+    box-shadow:0 6px 20px rgba(15,24,38,.05);
+  }
+  .cert-top{ display:flex; align-items:flex-start; gap:12px; }
+  .cert-icon{
+    flex-shrink:0;
+    width:36px; height:36px;
+    border-radius:8px;
+    background:var(--amber-bg);
+    color:var(--amber);
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+  }
+  .cert-title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:14px;
+    color:var(--ink);
+    margin:0 0 3px;
+  }
+  .cert-source{
+    font-size:12px;
+    color:var(--ink-faint);
+    font-family:var(--font-mono);
+  }
+  .cert-detail{
+    margin:10px 0 0;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .cert-courses{
+    display:inline-block;
+    margin-top:9px;
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--navy);
+    background:#EAF1F6;
+    padding:2px 8px;
+    border-radius:100px;
+  }
+
+  /* ---------- Education / Languages ---------- */
+  .split-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .info-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .info-card h3{
+    font-family:var(--font-mono);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--ink-faint);
+    margin:0 0 12px;
+  }
+  .edu-item{ margin-bottom:12px; }
+  .edu-item:last-child{ margin-bottom:0; }
+  .edu-item .deg{ font-weight:600; font-size:14.5px; color:var(--ink); }
+  .edu-item .school{ font-size:13px; color:var(--ink-soft); }
+
+  .lang-list{ display:flex; flex-direction:column; gap:9px; }
+  .lang-row{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:13.5px;
+  }
+  .lang-name{ color:var(--ink); font-weight:500; }
+  .lang-level{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--ink-faint);
+  }
+
+  /* ---------- Footer / CTA ---------- */
+  footer{
+    background:var(--navy-deep);
+    color:#CFE0EC;
+    padding:38px 0 26px;
+    text-align:center;
+  }
+  footer h2{
+    font-family:var(--font-display);
+    color:#fff;
+    font-size:24px;
+    margin:0 0 10px;
+  }
+  footer p{ color:#9FC0D2; font-size:14px; margin:0 0 22px; }
+  .cta-row{
+    display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--font-mono);
+    font-size:13px;
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:8px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-primary{ background:var(--green); color:#06331A; font-weight:600; }
+  .btn-outline{ border:1px solid rgba(255,255,255,.28); color:#EAF3F8; }
+  .fine{
+    margin-top:28px;
+    font-size:11.5px;
+    color:#5F7C90;
+    font-family:var(--font-mono);
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .pulse-dot{ animation:none; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .ticket:hover, .cert-card:hover{ transform:none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:720px){
+    .stat-grid{ grid-template-columns:repeat(2, 1fr); }
+    .comp-grid, .cert-grid, .split-grid{ grid-template-columns:1fr; }
+    .statusbar .wrap{ justify-content:flex-start; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <!-- Adjusted object-position in CSS for top alignment -->
-        <img src="profile.jpeg" alt="Jayadevan P" class="profile-img">
-        <h1>Jayadevan P</h1>
-        <h2>Customer Experience Associate | IT Support & Client Services | Multi-Channel Communication</h2>
-        <div class="contact-info">
-            <span>Abu Dhabi, UAE</span>
-            <a href="mailto:jayadevan.p@outlook.com">jayadevan.p@outlook.com</a>
-            <span>+971 56 530 0140</span>
-            <a href="https://linkedin.com/in/jayadevan-p" target="_blank">linkedin.com/in/jayadevan-p</a>
-        </div>
-    </header>
+<div class="statusbar">
+  <div class="wrap">
+    <div class="dot-line"><span class="pulse-dot"></span> SYSTEM STATUS: OPEN TO OPPORTUNITIES</div>
+    <div class="location"><i class="fa-solid fa-location-dot"></i> Abu Dhabi, UAE — UTC+4</div>
+  </div>
+</div>
 
-    <div class="container">
-        <!-- Professional Summary -->
-        <div class="card" id="summary">
-            <h3>Professional Summary</h3>
-            <p>Customer-focused professional with 10+ years of experience delivering timely, accurate, and professional support across multiple communication channels (email, phone, chat, and in-person). Holds five Professional Certificates from Microsoft (AZ-104), IBM, Google, and Packt in Azure cloud administration, IT support, AI, and cybersecurity. IBM-certified in technical support case studies, diagnostics, and customer troubleshooting. Proven ability to manage high volumes of concurrent inquiries, maintain detailed ticket documentation, and resolve issues end-to-end with strong ownership. Experienced in SLA-based helpdesk environments, cross-functional team collaboration, and metrics-driven performance. Leverages Google AI tools for research, writing, and data analysis to improve response quality and efficiency.</p>
-        </div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">// IT Support · Service Desk · IT Administration</p>
+    <h1>Jayadevan P</h1>
+    <p class="role">IT Support Specialist | IT Administrator | Service Desk &amp; Technical Support | Network &amp; Systems Support</p>
 
-        <!-- Highlighted Certifications -->
-        <div class="card" id="certifications">
-            <h3>Highlighted Certifications</h3>
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon">
-                        <h4>Microsoft Azure Administrator (AZ-104)</h4>
-                    </div>
-                    <div class="cert-meta">Packt/Coursera | Aug 2026</div>
-                    <div class="cert-focus">Azure Identity & Governance, Storage & Compute & Automation, Virtual Networking, Monitoring & Backup Strategies</div>
-                </div>
-                
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" class="cert-icon">
-                        <h4>IBM IT Support Professional Certificate</h4>
-                    </div>
-                    <div class="cert-meta">IBM/Coursera | Aug 2026</div>
-                    <div class="cert-focus">Technical Support, Hardware & OS, Networking & Storage, Cybersecurity Essentials, Cloud Computing, Software & Databases, CompTIA Tech+ Prep</div>
-                </div>
-                
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-icon">
-                        <h4>Google AI Professional Certificate</h4>
-                    </div>
-                    <div class="cert-meta">Google/Coursera | Aug 2026</div>
-                    <div class="cert-focus">AI Fundamentals, Brainstorming, Research & Insights, Writing & Communication, Content Creation, Data Analysis, App Building</div>
-                </div>
-                
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon">
-                        <h4>Microsoft IT Support Specialist</h4>
-                    </div>
-                    <div class="cert-meta">Microsoft/Coursera | Aug 2026</div>
-                    <div class="cert-focus">Secure Networking, Cybersecurity & Privacy, M365 Ecosystem, Software/Hardware/Backup, Diagnostics & Troubleshooting</div>
-                </div>
-                
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="cert-icon">
-                        <h4>Google IT Support Professional Certificate</h4>
-                    </div>
-                    <div class="cert-meta">Google/Coursera | Jul 2026</div>
-                    <div class="cert-focus">Technical Support, Networking, OS Admin, IT Infrastructure, IT Security</div>
-                </div>
-                
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="cert-icon">
-                        <h4>MS-102: Microsoft 365 Administrator</h4>
-                    </div>
-                    <div class="cert-meta">Packt (Coursera) | Jun 2026</div>
-                </div>
-                
-                <div class="cert-item">
-                    <div class="cert-header">
-                        <h4>AI Prompt Engineering</h4>
-                    </div>
-                    <div class="cert-meta">1 Million Prompters (Dubai Future Foundation, UAE) | 2026</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Professional Experience -->
-        <div class="card" id="experience">
-            <h3>Professional Experience</h3>
-            
-            <div class="job">
-                <div class="job-header">
-                    <p class="job-title">IT Incharge & Client Support Lead</p>
-                    <span class="job-date">Jan 2024 - Present</span>
-                </div>
-                <div class="job-company">Mazyad Mall | Al Raha Mall | Forsan Central Mall - Abu Dhabi, UAE</div>
-                <ul>
-                    <li>Serve as primary point of contact for 100+ tenants and internal departments, managing support requests via email, phone, and in-person with consistent professionalism and brand-aligned communication.</li>
-                    <li>Own tickets end-to-end (log, categorize, prioritize, resolve, and follow up) maintaining detailed and accurate documentation in ticketing systems throughout each interaction.</li>
-                    <li>Reduced average incident resolution time by 35% through structured workflows, proactive follow-ups, and applying quality feedback to eliminate recurring issues.</li>
-                    <li>Collaborate cross-functionally with Operations, Finance, Marketing, Security, and Facilities teams to coordinate resolutions and meet client needs within agreed timelines.</li>
-                    <li>Apply IBM-trained technical support frameworks and Azure cloud tools to resolve complex issues efficiently and maintain system reliability for all users.</li>
-                    <li>Leverage Google AI tools for research, writing, and data analysis to accelerate response drafting, improve documentation quality, and generate service insights.</li>
-                    <li>Identify recurring issues and implement process improvements to reduce repeat escalations and improve overall service quality.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <p class="job-title">IT Support & Client Services Specialist</p>
-                    <span class="job-date">Jan 2016 - Dec 2023</span>
-                </div>
-                <div class="job-company">Edappal Hospitals Pvt Ltd - Kerala, India</div>
-                <ul>
-                    <li>Managed Tier 1 & 2 support for 200+ hospital staff - resolving inquiries accurately, maintaining detailed records, and ensuring continuity in a high-pressure environment.</li>
-                    <li>Administered end-to-end ticket ownership for HIS issues logging, tracking, escalating to vendors, and following up to resolution; reduced recurring helpdesk tickets by 25%.</li>
-                    <li>Delivered user training sessions and written documentation to improve system adoption; maintained accurate service records and internal knowledge base.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <p class="job-title">Web Developer & Client Liaison</p>
-                    <span class="job-date">Jun 2015 - Dec 2015</span>
-                </div>
-                <div class="job-company">Centroid Software Solutions - India</div>
-                <ul>
-                    <li>Supported client requirements through professional communication, translating business needs into deliverables and providing timely project updates.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Core Competencies -->
-        <div class="card" id="competencies">
-            <h3>Core Competencies</h3>
-            <div class="skills-grid">
-                <div class="skill-box">
-                    <h4>Customer Support</h4>
-                    <p>Multi-channel support (email, chat, phone, in-person), ticket ownership & documentation, SLA management, end-to-end issue resolution</p>
-                </div>
-                <div class="skill-box">
-                    <h4>Technical Foundation</h4>
-                    <p>Azure Administrator (AZ-104), IBM IT Support certified: hardware & OS, networking, cybersecurity, cloud computing, software & databases</p>
-                </div>
-                <div class="skill-box">
-                    <h4>AI-Enhanced Delivery</h4>
-                    <p>Google AI (research, writing, content creation, data analysis), prompt engineering, AI-assisted response drafting & workflow automation</p>
-                </div>
-                <div class="skill-box">
-                    <h4>Communication</h4>
-                    <p>Professional written & verbal English, brand-aligned communication, client onboarding, user training, technical documentation</p>
-                </div>
-                <div class="skill-box">
-                    <h4>Problem-Solving</h4>
-                    <p>IBM case study methodology, root cause analysis, Azure monitoring, escalation management, diagnostics & process improvement</p>
-                </div>
-                <div class="skill-box">
-                    <h4>Performance & Metrics</h4>
-                    <p>Metrics-driven delivery, QA score adherence, response/resolution time tracking, productivity benchmarking, accountability</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Education & Languages -->
-        <div class="card" id="education-languages">
-            <div class="edu-lang-wrap">
-                <div>
-                    <h3>Education</h3>
-                    <div class="edu-item">
-                        <h4>Bachelor of Computer Applications (BCA)</h4>
-                        <p style="margin:0; color:var(--text-muted);">Bharathiar University, India - 2014</p>
-                    </div>
-                    <div class="edu-item">
-                        <h4>Higher Secondary Certificate (HSC)</h4>
-                        <p style="margin:0; color:var(--text-muted);">Board of HSE, Kerala, India - 2011</p>
-                    </div>
-                </div>
-                <div>
-                    <h3>Languages</h3>
-                    <ul style="padding-left: 20px;">
-                        <li><strong>English:</strong> Professional</li>
-                        <li><strong>Malayalam:</strong> Native</li>
-                        <li><strong>Hindi:</strong> Conversational</li>
-                        <li><strong>Tamil:</strong> Conversational</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="contact-row">
+      <span><i class="fa-solid fa-phone"></i><a href="tel:+971565300140">+971 56 530 0140</a></span>
+      <span><i class="fa-solid fa-envelope"></i><a href="mailto:jayadevan.p@outlook.com">jayadevan.p@outlook.com</a></span>
+      <span><i class="fa-solid fa-location-dot"></i>Abu Dhabi, UAE</span>
+      <span><i class="fa-brands fa-linkedin"></i><a href="https://linkedin.com/in/jayadevan-p" target="_blank" rel="noopener">linkedin.com/in/jayadevan-p</a></span>
     </div>
-    
-    <footer>
-        <p>&copy; 2026 Jayadevan P. Designed for Professional Portfolio.</p>
-    </footer>
+
+    <div class="stat-grid">
+      <div class="stat-tile"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
+      <div class="stat-tile"><div class="num">06</div><div class="lbl">Certifications</div></div>
+      <div class="stat-tile"><div class="num">35%</div><div class="lbl">Faster Resolution</div></div>
+      <div class="stat-tile"><div class="num">300+</div><div class="lbl">Users Supported</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="summary reveal">
+    <div class="section-head"><span class="idx">01</span><h2>Summary</h2></div>
+    <p>
+      Customer-focused IT Support &amp; Service Desk professional with <strong>10+ years</strong> of experience providing
+      Tier 1–2 technical support, IT administration, and multi-channel customer service (email, phone, chat, in-person).
+      Skilled in <strong>Active Directory</strong> administration, <strong>Microsoft 365</strong> support, Windows Server
+      environments, network troubleshooting (LAN/WAN/VPN/DNS/DHCP), and remote support tools. Experienced in end-to-end
+      ticket ownership, incident management, SLA compliance, and IT asset management within ITIL-aligned processes.
+      EC-Council certified in ethical hacking, network defense, digital forensics, and SOC operations — bringing strong
+      security-awareness and data confidentiality to every client interaction.
+    </p>
+  </section>
+
+  <section class="experience reveal">
+    <div class="section-head"><span class="idx">02</span><h2>Experience</h2></div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <div>
+          <div class="ticket-id">TCK-2024-01 · OPEN</div>
+          <div class="ticket-title">IT Support Specialist / IT Incharge &amp; Client Support Lead</div>
+          <div class="ticket-company">Mazyad Mall | Al Raha Mall | Forsan Central Mall — Abu Dhabi, UAE</div>
+        </div>
+        <div class="ticket-meta">
+          <span class="badge active">Active</span>
+          <span class="ticket-dates">Jan 2024 – Present</span>
+        </div>
+      </div>
+      <ul>
+        <li>Serve as primary IT support and service desk contact for 100+ tenants and internal departments, providing technical support and troubleshooting via email, phone, and in-person.</li>
+        <li>Own tickets end-to-end in the helpdesk ticketing system — log, categorize, prioritize, resolve, and follow up — meeting SLA targets throughout each incident.</li>
+        <li>Reduced average incident resolution time by 35% through structured troubleshooting workflows and continuous process improvement.</li>
+        <li>Administer user access, account permissions, and MFA/security controls — applying Active Directory and information security best practices.</li>
+        <li>Support desktop, network, and system administration tasks including hardware/software troubleshooting and remote support (AnyDesk, TeamViewer).</li>
+        <li>Leverage Google AI tools and Microsoft 365 applications to accelerate response drafting and generate service insights.</li>
+        <li>Drive root cause analysis and process improvements, reducing repeat escalations and improving service quality.</li>
+      </ul>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <div>
+          <div class="ticket-id">TCK-2016-02 · CLOSED</div>
+          <div class="ticket-title">IT Support &amp; Client Services Specialist</div>
+          <div class="ticket-company">Edappal Hospitals Pvt Ltd — Kerala, India</div>
+        </div>
+        <div class="ticket-meta">
+          <span class="badge resolved">Resolved</span>
+          <span class="ticket-dates">Jan 2016 – Dec 2023</span>
+        </div>
+      </div>
+      <ul>
+        <li>Delivered Tier 1 &amp; Tier 2 technical support for 200+ hospital staff, ensuring continuity in a high-pressure environment.</li>
+        <li>Owned end-to-end ticketing and incident management for Hospital Information System (HIS) issues; reduced recurring helpdesk tickets by 25%.</li>
+        <li>Supported user account administration, system access, and IT asset tracking across hospital departments.</li>
+        <li>Delivered end-user training sessions and technical documentation; maintained an internal knowledge base.</li>
+      </ul>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <div>
+          <div class="ticket-id">TCK-2015-03 · CLOSED</div>
+          <div class="ticket-title">Web Developer &amp; Client Liaison</div>
+          <div class="ticket-company">Centroid Software Solutions — India</div>
+        </div>
+        <div class="ticket-meta">
+          <span class="badge resolved">Resolved</span>
+          <span class="ticket-dates">Jun 2015 – Dec 2015</span>
+        </div>
+      </div>
+      <ul>
+        <li>Supported client requirements through professional communication, translating business needs into technical deliverables.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="competencies reveal">
+    <div class="section-head"><span class="idx">03</span><h2>Core Competencies</h2></div>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-headset"></i></div>
+        <div class="comp-body">
+          <h3>IT Support &amp; Service Desk</h3>
+          <p>Tier 1/2 support, ticketing systems, SLA management, incident management, remote support tools</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-user-gear"></i></div>
+        <div class="comp-body">
+          <h3>IT Administration</h3>
+          <p>Active Directory, Microsoft 365, Windows Server, MFA &amp; access controls, IT asset management</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <div class="comp-body">
+          <h3>Networking</h3>
+          <p>LAN/WAN/VPN, DNS/DHCP fundamentals, network troubleshooting, connectivity diagnostics</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="comp-body">
+          <h3>Security &amp; Compliance</h3>
+          <p>Ethical hacking, network defense, digital forensics, SOC operations, data confidentiality</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-cloud"></i></div>
+        <div class="comp-body">
+          <h3>Cloud &amp; Platforms</h3>
+          <p>Azure identity, storage, compute &amp; virtual networking; cloud computing &amp; databases</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-robot"></i></div>
+        <div class="comp-body">
+          <h3>AI-Enhanced Productivity</h3>
+          <p>Research, writing, data analysis, prompt engineering, AI-assisted documentation</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-comments"></i></div>
+        <div class="comp-body">
+          <h3>Communication &amp; Training</h3>
+          <p>Multi-channel support, client onboarding, end-user training, technical documentation</p>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div class="comp-body">
+          <h3>Problem-Solving</h3>
+          <p>Root cause analysis, escalation management, process improvement, diagnostics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certifications reveal">
+    <div class="section-head"><span class="idx">04</span><h2>Certifications</h2></div>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="cert-title">EC-Council Information Security Analyst</div>
+            <div class="cert-source">EC-Council / Coursera — Aug 2026</div>
+          </div>
+        </div>
+        <p class="cert-detail">Information Security Fundamentals, Ethical Hacking Essentials, Network Defense Essentials, Digital Forensics Essentials, Security Operations Center.</p>
+        <span class="cert-courses">5 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
+          <div>
+            <div class="cert-title">Microsoft Azure Administrator (AZ-104)</div>
+            <div class="cert-source">Packt / Coursera — Aug 2026</div>
+          </div>
+        </div>
+        <p class="cert-detail">Azure Identity &amp; Governance, Storage &amp; Compute &amp; Automation, Virtual Networking, Monitoring &amp; Backup Strategies.</p>
+        <span class="cert-courses">3 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-server"></i></div>
+          <div>
+            <div class="cert-title">IBM IT Support Professional Certificate</div>
+            <div class="cert-source">IBM / Coursera — Aug 2026</div>
+          </div>
+        </div>
+        <p class="cert-detail">Technical Support, Hardware &amp; OS, Networking &amp; Storage, Cybersecurity Essentials, Cloud Computing, Software &amp; Databases, CompTIA Tech+ Prep.</p>
+        <span class="cert-courses">9 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <div class="cert-title">Google AI Professional Certificate</div>
+            <div class="cert-source">Google / Coursera — Aug 2026</div>
+          </div>
+        </div>
+        <p class="cert-detail">AI Fundamentals, Brainstorming, Research, Writing, Content Creation, Data Analysis, App Building.</p>
+        <span class="cert-courses">7 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
+          <div>
+            <div class="cert-title">Microsoft IT Support Specialist</div>
+            <div class="cert-source">Microsoft / Coursera — Aug 2026</div>
+          </div>
+        </div>
+        <p class="cert-detail">Secure Networking, Cybersecurity &amp; Privacy, M365 Ecosystem, Software/Hardware/Backup, Diagnostics &amp; Troubleshooting.</p>
+        <span class="cert-courses">6 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-brands fa-google"></i></div>
+          <div>
+            <div class="cert-title">Google IT Support Professional Certificate</div>
+            <div class="cert-source">Google / Coursera — Jul 2026</div>
+          </div>
+        </div>
+        <p class="cert-detail">Technical Support, Networking, OS Admin, IT Infrastructure, IT Security.</p>
+        <span class="cert-courses">6 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
+          <div>
+            <div class="cert-title">AI Prompt Engineering</div>
+            <div class="cert-source">1 Million Prompters, Dubai Future Foundation — 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-users-gear"></i></div>
+          <div>
+            <div class="cert-title">MS-102: Microsoft 365 Administrator</div>
+            <div class="cert-source">Packt / Coursera — Jun 2026</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="education reveal">
+    <div class="section-head"><span class="idx">05</span><h2>Education &amp; Languages</h2></div>
+    <div class="split-grid">
+      <div class="info-card">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="deg">Bachelor of Computer Applications (BCA)</div>
+          <div class="school">Bharathiar University, India — 2014</div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">Higher Secondary Certificate (HSC)</div>
+          <div class="school">Board of HSE, Kerala, India — 2011</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>Languages</h3>
+        <div class="lang-list">
+          <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">PROFESSIONAL</span></div>
+          <div class="lang-row"><span class="lang-name">Hindi</span><span class="lang-level">CONVERSATIONAL</span></div>
+          <div class="lang-row"><span class="lang-name">Malayalam</span><span class="lang-level">NATIVE</span></div>
+          <div class="lang-row"><span class="lang-name">Tamil</span><span class="lang-level">CONVERSATIONAL</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>Open to IT Support, Service Desk, and IT Administration roles across the UAE.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:jayadevan.p@outlook.com"><i class="fa-solid fa-envelope"></i> Email me</a>
+      <a class="btn btn-outline" href="tel:+971565300140"><i class="fa-solid fa-phone"></i> +971 56 530 0140</a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/jayadevan-p" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    </div>
+    <div class="fine">References available upon request · Abu Dhabi, UAE</div>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  items.forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
