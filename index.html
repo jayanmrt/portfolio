@@ -345,6 +345,16 @@
     color:var(--ink-soft);
     line-height:1.5;
   }
+
+  .cert-cred.cert-cred-empty{ visibility:hidden; }
+  .cert-cred{
+    display:block;
+    margin-top:6px;
+    font-family:var(--font-mono);
+    font-size:10px;
+    color:var(--ink-faint);
+    letter-spacing:.02em;
+  }
   .cert-courses{
     display:inline-block;
     margin-top:9px;
@@ -429,6 +439,7 @@
     font-family:var(--font-mono);
   }
 
+
   /* ---------- Reveal on scroll ---------- */
   .reveal{
     opacity:0;
@@ -476,7 +487,7 @@
 
     <div class="stat-grid">
       <div class="stat-tile"><div class="num">10+</div><div class="lbl">Years Experience</div></div>
-      <div class="stat-tile"><div class="num">06</div><div class="lbl">Certifications</div></div>
+      <div class="stat-tile"><div class="num">11</div><div class="lbl">Certifications</div></div>
       <div class="stat-tile"><div class="num">35%</div><div class="lbl">Faster Resolution</div></div>
       <div class="stat-tile"><div class="num">300+</div><div class="lbl">Users Supported</div></div>
     </div>
@@ -630,70 +641,11 @@
 
       <div class="cert-card">
         <div class="cert-top">
-          <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div>
-            <div class="cert-title">EC-Council Information Security Analyst</div>
-            <div class="cert-source">EC-Council / Coursera — Aug 2026</div>
-          </div>
-        </div>
-        <p class="cert-detail">Information Security Fundamentals, Ethical Hacking Essentials, Network Defense Essentials, Digital Forensics Essentials, Security Operations Center.</p>
-        <span class="cert-courses">5 courses</span>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
-          <div>
-            <div class="cert-title">Microsoft Azure Administrator (AZ-104)</div>
-            <div class="cert-source">Packt / Coursera — Aug 2026</div>
-          </div>
-        </div>
-        <p class="cert-detail">Azure Identity &amp; Governance, Storage &amp; Compute &amp; Automation, Virtual Networking, Monitoring &amp; Backup Strategies.</p>
-        <span class="cert-courses">3 courses</span>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-icon"><i class="fa-solid fa-server"></i></div>
-          <div>
-            <div class="cert-title">IBM IT Support Professional Certificate</div>
-            <div class="cert-source">IBM / Coursera — Aug 2026</div>
-          </div>
-        </div>
-        <p class="cert-detail">Technical Support, Hardware &amp; OS, Networking &amp; Storage, Cybersecurity Essentials, Cloud Computing, Software &amp; Databases, CompTIA Tech+ Prep.</p>
-        <span class="cert-courses">9 courses</span>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-icon"><i class="fa-solid fa-robot"></i></div>
-          <div>
-            <div class="cert-title">Google AI Professional Certificate</div>
-            <div class="cert-source">Google / Coursera — Aug 2026</div>
-          </div>
-        </div>
-        <p class="cert-detail">AI Fundamentals, Brainstorming, Research, Writing, Content Creation, Data Analysis, App Building.</p>
-        <span class="cert-courses">7 courses</span>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-top">
-          <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
-          <div>
-            <div class="cert-title">Microsoft IT Support Specialist</div>
-            <div class="cert-source">Microsoft / Coursera — Aug 2026</div>
-          </div>
-        </div>
-        <p class="cert-detail">Secure Networking, Cybersecurity &amp; Privacy, M365 Ecosystem, Software/Hardware/Backup, Diagnostics &amp; Troubleshooting.</p>
-        <span class="cert-courses">6 courses</span>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-top">
           <div class="cert-icon"><i class="fa-brands fa-google"></i></div>
           <div>
             <div class="cert-title">Google IT Support Professional Certificate</div>
             <div class="cert-source">Google / Coursera — Jul 2026</div>
+            <span class="cert-cred">Credential ID: 9OAB8P9M4QNZ</span>
           </div>
         </div>
         <p class="cert-detail">Technical Support, Networking, OS Admin, IT Infrastructure, IT Security.</p>
@@ -702,12 +654,28 @@
 
       <div class="cert-card">
         <div class="cert-top">
-          <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
+          <div class="cert-icon"><i class="fa-solid fa-server"></i></div>
           <div>
-            <div class="cert-title">AI Prompt Engineering</div>
-            <div class="cert-source">1 Million Prompters, Dubai Future Foundation — 2026</div>
+            <div class="cert-title">IBM IT Support Professional Certificate</div>
+            <div class="cert-source">IBM / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: I9U9WVK24T69</span>
           </div>
         </div>
+        <p class="cert-detail">Technical Support, Hardware &amp; OS, Networking &amp; Storage, Cybersecurity Essentials, Cloud Computing, Software &amp; Databases, CompTIA Tech+ Prep.</p>
+        <span class="cert-courses">9 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
+          <div>
+            <div class="cert-title">Microsoft IT Support Specialist</div>
+            <div class="cert-source">Microsoft / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: 6O03NB3PXDO7</span>
+          </div>
+        </div>
+        <p class="cert-detail">Secure Networking, Cybersecurity &amp; Privacy, M365 Ecosystem, Software/Hardware/Backup, Diagnostics &amp; Troubleshooting.</p>
+        <span class="cert-courses">6 courses</span>
       </div>
 
       <div class="cert-card">
@@ -716,6 +684,96 @@
           <div>
             <div class="cert-title">MS-102: Microsoft 365 Administrator</div>
             <div class="cert-source">Packt / Coursera — Jun 2026</div>
+            <span class="cert-cred">Credential ID: ON6TN7E6N01O</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-cloud"></i></div>
+          <div>
+            <div class="cert-title">Microsoft Azure Administrator (AZ-104)</div>
+            <div class="cert-source">Packt / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: LQSMS6ZL6BXG</span>
+          </div>
+        </div>
+        <p class="cert-detail">Azure Identity &amp; Governance, Storage &amp; Compute &amp; Automation, Virtual Networking, Monitoring &amp; Backup Strategies.</p>
+        <span class="cert-courses">3 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="cert-title">EC-Council Information Security Analyst</div>
+            <div class="cert-source">EC-Council / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: CXELBKNLAOEO</span>
+          </div>
+        </div>
+        <p class="cert-detail">Information Security Fundamentals, Ethical Hacking Essentials, Network Defense Essentials, Digital Forensics Essentials, Security Operations Center.</p>
+        <span class="cert-courses">5 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div>
+            <div class="cert-title">Google AI Essentials</div>
+            <div class="cert-source">Google / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: MG0KPZ77U4BB</span>
+          </div>
+        </div>
+        <p class="cert-detail">Introduction to AI, Maximize Productivity With AI Tools, Discover the Art of Prompting, Use AI Responsibly, Stay Ahead of the AI Curve.</p>
+        <span class="cert-courses">5 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <div class="cert-title">Google AI Professional Certificate</div>
+            <div class="cert-source">Google / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: ATNF4HHK23Q3</span>
+          </div>
+        </div>
+        <p class="cert-detail">AI Fundamentals, Brainstorming, Research, Writing, Content Creation, Data Analysis, App Building.</p>
+        <span class="cert-courses">7 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-crown"></i></div>
+          <div>
+            <div class="cert-title">Google Generative AI Leader</div>
+            <div class="cert-source">Google Cloud / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: BVT12E71UU9J</span>
+          </div>
+        </div>
+        <p class="cert-detail">Gen AI: Beyond the Chatbot, Unlock Foundational Concepts, Navigate the Landscape, Gen AI Apps: Transform Your Work, Gen AI Agents: Transform Your Organization.</p>
+        <span class="cert-courses">5 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-brands fa-aws"></i></div>
+          <div>
+            <div class="cert-title">AWS Generative AI Applications</div>
+            <div class="cert-source">AWS / Coursera — Aug 2026</div>
+            <span class="cert-cred">Credential ID: LVNPC6N413HB</span>
+          </div>
+        </div>
+        <p class="cert-detail">AI Fundamentals and the Cloud, AWS Services for AI Solutions, Bringing Ideas to Life Using AI — hands-on with Amazon Bedrock, PartyRock, and responsible AI practices.</p>
+        <span class="cert-courses">3 courses</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
+          <div>
+            <div class="cert-title">AI Prompt Engineering</div>
+            <div class="cert-source">1 Million Prompters, Dubai Future Foundation — 2026</div>
+            <span class="cert-cred cert-cred-empty">Credential ID: —</span>
           </div>
         </div>
       </div>
